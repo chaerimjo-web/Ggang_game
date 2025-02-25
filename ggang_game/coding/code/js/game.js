@@ -21,6 +21,11 @@ const key = {
 	}
 }
 
+const gameProp = {
+	screenHeight : window.innerHeight,
+	screenWidth : window.innerWidth
+}
+
 const renderGame = () => {
 		window.requestAnimationFrame(renderGame); //재귀함수/ 자기자신을 호출 
 		hero.keyMotion(); //키를 누를때 key메소드를 호출한다. 		
@@ -54,6 +59,7 @@ const init = () => {
 	loadImg();
 	windowEvent();
 	renderGame();
+	console.log(hero.position());
 }
 
 window.onload = () => {
