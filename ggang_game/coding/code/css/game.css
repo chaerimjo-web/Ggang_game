@@ -51,3 +51,12 @@
 	background-size: 3770px 458px;
 	animation: hero_attack 0.7s infinite steps(10);
 }
+
+.hero_bullet{
+	left: 0; bottom: 0;
+	position: absolute;
+	background: url(../../../lib/images/hero_bullet.png) no-repeat;
+	background-size: cover;
+	width: 160px; height: 32px;
+	z-index: 90;
+}

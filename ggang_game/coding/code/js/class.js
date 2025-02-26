@@ -24,6 +24,7 @@ class Hero{
 		}
 		if(key.keyDown['x_key']){
 			this.el.classList.add('attack');
+			new Bullet(); //수리검
 		}
 		if(!key.keyDown['x_key']){
 			this.el.classList.remove('attack');
@@ -37,5 +38,24 @@ class Hero{
 			top: gameProp.screenHeight - this.el.getBoundingClientRect().top,
 			bottom: gameProp.screenHeight - this.el.getBoundingClientRect().top -this.el.getBoundingClientRect().height
 		}
+	}
+	
+}
+
+class Bullet{ 
+	constructor(){ //수리검 생성하기
+		this.parentNode = document.querySelector('.game');
+		this.el = document.createElement('div');
+		this.el.className = 'hero_bullet';
+		this.x=0;
+		this.y=0;
+		this.init();
+	}
+	init(){ //수리검 추가하기 
+		this.x = hero.position().left;
+		this.y = hero.position().bottom;
+		
+		this.el.style.transform = `translate(${this.x}px, ${this.y}px)`;
+		this.parentNode.appendChild(this.el);
 	}
 }
