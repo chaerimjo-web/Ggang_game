@@ -20,6 +20,11 @@ const key = {
 		88: 'x_key'
 	}
 }
+const bulletComProp = {
+	launch: false,
+	//모든 수리검을 이 배열에서 관리
+	arr:[]
+}
 
 const gameProp = {
 	screenHeight : window.innerHeight,
@@ -27,8 +32,11 @@ const gameProp = {
 }
 
 const renderGame = () => {
-		window.requestAnimationFrame(renderGame); //재귀함수/ 자기자신을 호출 
 		hero.keyMotion(); //키를 누를때 key메소드를 호출한다. 		
+		bulletComProp.arr.forEach((arr, i)=>{
+			arr.moveBullet();
+		});
+		window.requestAnimationFrame(renderGame); //재귀함수/ 자기자신을 호출 
 	}
 
 const windowEvent = () => {
